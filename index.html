@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Amanda Crawford-Adamo · Senior Data Engineer & Educator</title>
+  <title>Amanda Crawford-Adamo · Senior Data Engineer · Builder · Educator</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400;1,9..144,500&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -209,7 +209,7 @@
       font-size: 1.1rem;
       font-weight: 400;
       color: var(--text-mid);
-      max-width: 540px;
+      max-width: 560px;
       line-height: 1.75;
       padding: 1.2rem 1.6rem;
       background: var(--white);
@@ -309,8 +309,121 @@
     .chip-title { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; color: var(--text); line-height: 1.2; }
     .chip-sub   { font-size: 0.8rem; color: var(--text-light); margin-top: 0.15rem; }
 
+    /* ══ Projects ══ */
+    #projects { background: var(--bg); padding: 6rem 3rem 5rem; }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .project-card {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem 1.8rem 1.8rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.22s, box-shadow 0.22s;
+      display: flex;
+      flex-direction: column;
+    }
+    .project-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px var(--shadow); }
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      border-radius: 4px 4px 0 0;
+    }
+    .project-card.green::before { background: var(--sage); }
+    .project-card.blue::before  { background: var(--sky);  }
+    .project-card.pink::before  { background: var(--pink); }
+
+    .project-emoji {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      line-height: 1;
+    }
+
+    .project-type {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+    .project-type.green { color: var(--sage); }
+    .project-type.blue  { color: var(--sky);  }
+    .project-type.pink  { color: var(--pink); }
+
+    .project-name {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1.15;
+      margin-bottom: 0.65rem;
+    }
+
+    .project-desc {
+      font-size: 0.92rem;
+      color: var(--text-mid);
+      line-height: 1.7;
+      flex-grow: 1;
+    }
+
+    .project-stat {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-light);
+      margin-top: 1.2rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .project-footer .project-stat {
+      margin-top: 0;
+      padding-top: 0;
+      border-top: none;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--sage);
+      text-decoration: none;
+      margin-top: 1.2rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+      transition: color 0.2s, gap 0.2s;
+    }
+    .project-link:hover { color: #4C8C70; gap: 0.55rem; }
+
+    .project-link.blue  { color: var(--sky); }
+    .project-link.blue:hover { color: #5698C8; }
+    .project-link.pink  { color: var(--pink); }
+    .project-link.pink:hover { color: #C06E84; }
+
+    .project-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 1.2rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+    }
+
     /* ══ Experience ══ */
-    #experience { padding: 6rem 3rem; background: var(--bg); }
+    #experience { padding: 6rem 3rem; background: var(--surface); }
 
     .timeline { margin-top: 3rem; display: flex; flex-direction: column; gap: 1.5rem; }
 
@@ -342,6 +455,19 @@
     .tl-org.blue  { color: var(--sky);  }
     .tl-org.pink  { color: var(--pink); }
     .tl-desc   { font-size: 0.96rem; color: var(--text-mid); line-height: 1.75; }
+
+    .tl-earlier {
+      font-size: 0.88rem;
+      color: var(--text-light);
+      line-height: 1.7;
+      padding: 1.2rem 2rem;
+      border-left: 3px solid var(--border);
+      margin-left: 0;
+    }
+    .tl-earlier span {
+      font-weight: 700;
+      color: var(--text-mid);
+    }
 
     /* ══ Footer ══ */
     footer {
@@ -385,12 +511,19 @@
       to   { opacity: 1; transform: none; }
     }
 
+    /* ══ Responsive ══ */
     @media (max-width: 760px) {
       nav { padding: 1rem 1.5rem; }
       .nav-links { gap: 1rem; }
-      #hero, #about, #experience, footer { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .nav-links a { font-size: 0.72rem; letter-spacing: 0.05em; }
+      #hero, #about, #projects, #experience, footer { padding-left: 1.5rem; padding-right: 1.5rem; }
       .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .project-grid { grid-template-columns: 1fr; }
       .deco { display: none; }
+    }
+
+    @media (min-width: 761px) and (max-width: 960px) {
+      .project-grid { grid-template-columns: 1fr 1fr; }
     }
   </style>
 </head>
@@ -401,6 +534,7 @@
     <a href="#hero" class="nav-logo">🌿 Amanda Crawford-Adamo</a>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
+      <li><a href="#projects">My Work</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="https://www.linkedin.com/in/techacrawford" target="_blank" rel="noopener">LinkedIn ↗</a></li>
       <li><a href="https://github.com/amandajcrawford/amandajcrawford.github.io/raw/master/pdf/Amanda_Crawford_Adamo_Resume_Mar_2026.pdf" target="_blank" rel="noopener" class="btn btn-primary btn-sm" download="Amanda_Crawford_Adamo_Resume_Mar_2026.pdf">Resume</a></li>
@@ -427,18 +561,18 @@
       <ellipse cx="105" cy="70" rx="34" ry="20" transform="rotate(55 105 70)" fill="#A8D4BC" opacity="0.7"/>
     </svg>
 
-    <div class="hero-pill">✦ Senior Data Engineer & Educator</div>
+    <div class="hero-pill">✦ Senior Data Engineer · Builder · Educator</div>
     <h1 class="hero-name">
       Building<br>
       <span class="line-italic">data.</span>
       <span class="line-sky">Building people.</span>
     </h1>
     <p class="hero-tagline">
-      I engineer scalable data systems and prepare the next generation of data professionals — with a focus on who gets a seat at the table.
+      I engineer scalable data systems, build products for the communities I belong to, and prepare the next generation of data professionals — with a focus on who gets a seat at the table.
     </p>
     <div class="hero-cta">
       <a href="https://www.linkedin.com/in/techacrawford" class="btn btn-primary" target="_blank" rel="noopener">Connect on LinkedIn ↗</a>
-      <a href="https://github.com/amandajcrawford/amandajcrawford.github.io/raw/master/pdf/Amanda_Crawford_Adamo_Resume_Mar_2026.pdf" class="btn btn-sky" target="_blank" rel="noopener" download="Amanda_Crawford_Adamo_Resume_Mar_2026.pdf">View Resume</a>
+      <a href="#projects" class="btn btn-outline">See what I'm building →</a>
     </div>
   </section>
 
@@ -456,8 +590,8 @@
       <div class="about-grid">
         <div class="about-text reveal">
           <p>Software and data engineer with 10+ years designing and scaling distributed data platforms. At Dropbox, I led architecture of a Snowflake-based financial warehouse and governance framework — reducing data-issue detection time by 80%.</p>
-          <p>I also teach. At CodePath, I bring data structures and algorithms to diverse undergraduate students. I created an Advanced Git course for DataCamp reaching 10,000+ learners worldwide, and I’ve conducted hundreds of technical interviews through Karat and Interview Kickstart.</p>
-          <p>My longer-term vision is a consulting and training practice that helps organizations work better with data — and helps more people get into it.</p>
+          <p>I also teach. At CodePath, I bring data structures and algorithms to diverse undergraduate students. I created courses for DataCamp reaching tens of thousands of learners worldwide, and I've conducted hundreds of technical interviews through Karat and companies that I've worked at.</p>
+          <p>And I build. I'm creating tools that serve communities I belong to — starting with the outdoor space. The longer-term vision is a consulting and training practice that helps organizations work better with data, and helps more people get into it.</p>
         </div>
         <div class="about-cards">
           <div class="chip-card reveal">
@@ -471,14 +605,14 @@
             <div class="chip-icon blue">📊</div>
             <div>
               <div class="chip-title">DataCamp</div>
-              <div class="chip-sub">Course Creator</div>
+              <div class="chip-sub">Course Creator · 34,500+ learners</div>
             </div>
           </div>
           <div class="chip-card reveal">
             <div class="chip-icon pink">🌸</div>
             <div>
-              <div class="chip-title">Mentor</div>
-              <div class="chip-sub">Expanding who gets a seat at the table in data</div>
+              <div class="chip-title">Builder</div>
+              <div class="chip-sub">Products for communities that deserve better tools</div>
             </div>
           </div>
         </div>
@@ -492,11 +626,58 @@
     </svg>
   </div>
 
+  <!-- ══ Projects ══ -->
+  <section id="projects">
+    <div class="container">
+      <p class="section-label reveal">My Work</p>
+      <h2 class="section-heading reveal">Things I've<br><em>built.</em></h2>
+      <div class="project-grid">
+
+        <!-- First Outside -->
+        <div class="project-card green reveal">
+          <div class="project-emoji">🌿</div>
+          <div class="project-type green">Product</div>
+          <div class="project-name">First Outside</div>
+          <div class="project-desc">An outdoor guide for families with babies and toddlers. Age-matched activities, nearby parks, community ratings, and a prep kit that knows your baby's age and today's weather.</div>
+          <a href="https://firstoutside.com" target="_blank" rel="noopener" class="project-link">Early access sign-up →</a>
+        </div>
+
+        <!-- DataCamp Course -->
+        <div class="project-card blue reveal">
+          <div class="project-emoji">📊</div>
+          <div class="project-type blue">Course</div>
+          <div class="project-name">Advanced Git</div>
+          <div class="project-desc">A DataCamp course on Git's advanced features for data engineering workflows — rebasing, reflog, bisect, Git LFS, worktrees, and submodules. Built from 10+ years of production experience.</div>
+          <div class="project-footer">
+            <span class="project-stat">34,500+ learners</span>
+            <a href="https://www.datacamp.com/courses/advanced-git" target="_blank" rel="noopener" class="project-link blue" style="margin-top:0; padding-top:0; border-top:none;">View course →</a>
+          </div>
+        </div>
+
+        <!-- DataCamp Webinar -->
+        <div class="project-card pink reveal">
+          <div class="project-emoji">🎙️</div>
+          <div class="project-type pink">Webinar</div>
+          <div class="project-name">Collaborative Data Engineering with Git</div>
+          <div class="project-desc">A hands-on DataCamp code-along on collaborative data engineering practices — branching strategies, repository organization, and a real-world case study on building pipelines as a team.</div>
+          <a href="https://www.datacamp.com/code-along/collaborative-data-engineering-with-git" target="_blank" rel="noopener" class="project-link pink">Watch the webinar →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="wave-divider">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,30 C240,60 480,0 720,30 C960,60 1200,0 1440,30 L1440,60 L0,60 Z" fill="#EEF8F3"/>
+    </svg>
+  </div>
+
   <!-- ══ Experience ══ -->
   <section id="experience">
     <div class="container">
       <p class="section-label reveal">Experience</p>
-      <h2 class="section-heading pink reveal">Where I’ve<br><em>worked.</em></h2>
+      <h2 class="section-heading pink reveal">Where I've<br><em>worked.</em></h2>
       <div class="timeline">
 
         <div class="tl-card green reveal">
@@ -527,19 +708,20 @@
           <div class="tl-desc">Modernized the financial data warehouse using Azure Data Factory, Azure SQL, and Azure Storage — increasing ETL throughput and enabling unified, near-real-time reporting for FP&A.</div>
         </div>
 
+        <div class="tl-card blue reveal">
+          <div class="tl-period">May 2019 – Mar 2020</div>
+          <div class="tl-role">Software Engineer</div>
+          <div class="tl-org blue">BrightHive</div>
+          <div class="tl-desc">Productionized a reusable ETL ingestion framework on AWS (Airflow, Dagster, Python) to onboard 10+ university data sources into a governed collaborative warehouse, standardizing pipelines and SLAs.</div>
+        </div>
+
+        <div class="tl-earlier reveal">
+          <span>Previously:</span> Specialist Applications Developer at AT&T (2014–2017) · Graduate Research Assistant at University of Pittsburgh (2018)
+        </div>
+
       </div>
     </div>
   </section>
-
-  <!-- ══ Projects (hidden — uncomment when ready) ══
-  <section id="projects" style="display:block; padding: 6rem 3rem; background: var(--surface);">
-    <div class="container">
-      <p class="section-label">Projects</p>
-      <h2 class="section-heading">Things I’ve <em>built.</em></h2>
-      Project cards go here
-    </div>
-  </section>
-  ══ -->
 
   <!-- ══ Footer ══ -->
   <footer>
@@ -550,10 +732,11 @@
     </svg>
     <div class="footer-inner">
       <div class="footer-name">Amanda Crawford-Adamo</div>
-      <div class="footer-title">Senior Data Engineer & Educator</div>
+      <div class="footer-title">Senior Data Engineer · Builder · Educator</div>
       <div class="footer-divider"></div>
       <ul class="footer-links">
         <li><a href="#about">About</a></li>
+        <li><a href="#projects">My Work</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="https://www.linkedin.com/in/techacrawford" target="_blank" rel="noopener">LinkedIn</a></li>
         <li><a href="https://github.com/amandajcrawford/amandajcrawford.github.io/raw/master/pdf/Amanda_Crawford_Adamo_Resume_Mar_2026.pdf" target="_blank" rel="noopener" download="Amanda_Crawford_Adamo_Resume_Mar_2026.pdf">Resume</a></li>
